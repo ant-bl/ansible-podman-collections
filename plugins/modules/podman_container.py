@@ -271,6 +271,17 @@ options:
         If you need to copy the file from controller to remote machine, use the
         copy or slurp module.
     type: path
+  env_files:
+    description:
+      - Read in a line delimited files of environment variables. Doesn't support
+        idempotency. If users changes the file with environment variables it's
+        on them to recreate the container.
+        The file must be present on the REMOTE machine where actual podman is
+        running, not on the controller machine where Ansible is executing.
+        If you need to copy the file from controller to remote machine, use the
+        copy or slurp module.
+    type: list
+    elements: path
   env_host:
     description:
       - Use all current host environment variables in container.
